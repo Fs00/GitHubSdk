@@ -56,6 +56,7 @@ public class ServiceGenerator {
     private final static Retrofit.Builder builder = new Retrofit.Builder()
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(new StringResponseConverterFactory())
+            .addConverterFactory(new ByteArrayResponseConverterFactory())
             .addConverterFactory(MoshiConverterFactory.create(moshi));
 
     private final static OkHttpClient httpClient = new OkHttpClient.Builder()
