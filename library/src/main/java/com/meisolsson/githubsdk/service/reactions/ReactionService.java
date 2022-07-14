@@ -37,11 +37,17 @@ public interface ReactionService {
     @POST("repos/{owner}/{repo}/comments/{id}/reactions")
     Single<Response<Reaction>> createCommitCommentReaction(@Path("owner") String owner, @Path("repo") String repo, @Path("id") long commentId, @Body ReactionRequest request);
 
+    @DELETE("repos/{owner}/{repo}/comments/{comment}/reactions/{id}")
+    Single<Response<Void>> deleteCommitCommentReaction(@Path("owner") String owner, @Path("repo") String repo, @Path("comment") long commentId, @Path("id") long reactionId);
+
     @GET("repos/{owner}/{repo}/issues/{number}/reactions")
     Single<Response<Page<Reaction>>> getIssueReactions(@Path("owner") String owner, @Path("repo") String repo, @Path("number") long number, @Query("page") long page);
 
     @POST("repos/{owner}/{repo}/issues/{number}/reactions")
     Single<Response<Reaction>> createIssueReaction(@Path("owner") String owner, @Path("repo") String repo, @Path("number") long number, @Body ReactionRequest request);
+
+    @DELETE("repos/{owner}/{repo}/issues/{number}/reactions/{id}")
+    Single<Response<Void>> deleteIssueReaction(@Path("owner") String owner, @Path("repo") String repo, @Path("number") long number, @Path("id") long reactionId);
 
     @GET("repos/{owner}/{repo}/issues/comments/{id}/reactions")
     Single<Response<Page<Reaction>>> getIssueCommentReactions(@Path("owner") String owner, @Path("repo") String repo, @Path("id") long commentId, @Query("page") long page);
@@ -49,12 +55,15 @@ public interface ReactionService {
     @POST("repos/{owner}/{repo}/issues/comments/{id}/reactions")
     Single<Response<Reaction>> createIssueCommentReaction(@Path("owner") String owner, @Path("repo") String repo, @Path("id") long commentId, @Body ReactionRequest request);
 
+    @DELETE("repos/{owner}/{repo}/issues/comments/{comment}/reactions/{id}")
+    Single<Response<Void>> deleteIssueCommentReaction(@Path("owner") String owner, @Path("repo") String repo, @Path("comment") long commentId, @Path("id") long reactionId);
+
     @GET("repos/{owner}/{repo}/pulls/comments/{id}/reactions")
     Single<Response<Page<Reaction>>> getPullRequestReviewCommentReactions(@Path("owner") String owner, @Path("repo") String repo, @Path("id") long commentId, @Query("page") long page);
 
     @POST("repos/{owner}/{repo}/pulls/comments/{id}/reactions")
     Single<Response<Reaction>> createPullRequestReviewCommentReaction(@Path("owner") String owner, @Path("repo") String repo, @Path("id") long commentId, @Body ReactionRequest request);
 
-    @DELETE("reactions/{id}")
-    Single<Response<Void>> deleteReaction(@Path("id") long id);
+    @DELETE("repos/{owner}/{repo}/pulls/comments/{comment}/reactions/{id}")
+    Single<Response<Void>> deletePullRequestReviewCommentReaction(@Path("owner") String owner, @Path("repo") String repo, @Path("comment") long commentId, @Path("id") long reactionId);
 }
