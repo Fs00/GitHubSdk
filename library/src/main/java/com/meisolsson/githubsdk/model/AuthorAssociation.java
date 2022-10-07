@@ -23,6 +23,7 @@ public enum AuthorAssociation {
     @Json(name = "CONTRIBUTOR") Contributor,
     @Json(name = "FIRST_TIMER") FirstTimer,
     @Json(name = "FIRST_TIME_CONTRIBUTOR") FirstTimeContributor,
+    @Json(name = "MANNEQUIN") Mannequin,
     @Json(name = "MEMBER") Member,
     @Json(name = "NONE") None,
     @Json(name = "OWNER") Owner
