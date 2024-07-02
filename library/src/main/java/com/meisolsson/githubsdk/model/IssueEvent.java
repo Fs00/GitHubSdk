@@ -34,7 +34,7 @@ public abstract class IssueEvent implements Parcelable {
     public static abstract class DismissedReview implements Parcelable {
         @Json(name = "review_id")
         @Nullable
-        public abstract Integer reviewId();
+        public abstract Long reviewId();
 
         @Nullable
         public abstract ReviewEventState state();

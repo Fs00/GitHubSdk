@@ -45,11 +45,11 @@ public abstract class ReviewComment extends PositionalCommentBase {
 
     @Json(name = "pull_request_review_id")
     @Nullable
-    public abstract Integer pullRequestReviewId();
+    public abstract Long pullRequestReviewId();
 
     @Json(name = "in_reply_to_id")
     @Nullable
-    public abstract Integer inReplyToId();
+    public abstract Long inReplyToId();
 
     public abstract Builder toBuilder();
 
@@ -71,9 +71,9 @@ public abstract class ReviewComment extends PositionalCommentBase {
 
         public abstract Builder originalPosition(Integer originalPosition);
 
-        public abstract Builder pullRequestReviewId(Integer pullRequestReviewId);
+        public abstract Builder pullRequestReviewId(Long pullRequestReviewId);
 
-        public abstract Builder inReplyToId(Integer inReplyToId);
+        public abstract Builder inReplyToId(Long inReplyToId);
 
         public abstract Builder pullRequestUrl(String pullRequestUrl);
 
